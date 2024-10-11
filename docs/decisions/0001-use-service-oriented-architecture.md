@@ -31,14 +31,17 @@ Chosen option: "Service-Oriented Architecture (SOA)", because it provides a bala
 
 ### Consequences
 
-- Good, because SOA allows for modular development and deployment of services, improving maintainability.
-- Good, because it enables scalability of individual services as needed, supporting our growth requirements.
-- Good, because it provides better fault isolation compared to monolithic systems.
+- Good, because it has allowed us to explore a new unused architecture type for the team.
+- Good, because it has honed our ability to delegate specific sections between the team.
+- Good, because its provided the team with better fault isolation & hotfix options throughout development.
 - Good, because it allows for easier integration of new technologies and services in the future.
-- Bad, because it may introduce some complexity in service communication and management.
-- Bad, because it might require more initial setup and infrastructure compared to a monolithic system.
+- Bad, because it has resulted in an increased workload developing the various independant services.
 
 ## Pros and Cons of the Options
+
+### Confirmation
+
+No current review performed of this ADR.
 
 ### Monolithic Architecture
 
