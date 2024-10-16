@@ -17,11 +17,11 @@ The Advanced Media Library (AML) requires the use of a hightly scalable, secure 
 
 - Team's existing experience and expertise
 - Ease of scalability
-- Performance in searches
-- The ease of maintaining data integrity
+- Good performance, particularly in searches
+- Assurance of maintaining data integrity
 - Cost-effectiveness in development and deployment
-- Security
-- Maintainable
+- Security for user data
+- Maintainability
 
 ## Considered Options
 
