@@ -8,10 +8,10 @@ nav_order: 3
 ## Context and Problem Statement
 
 The Advanced Media Library (AML) requires the use of a hightly scalable, secure and performant database software
- to store the large amounts of information on media, members, branches and payments. 
- The database should easy to host using cloud services in order to automate scalability, 
- and be secure to ensure GDPR compliance. We must choose a database software that facilitates fast implementation, 
- scalability, security, and provides good performance while maintaining data integrity.
+to store the large amounts of information on media, members, branches and payments.
+The database should easy to host using cloud services in order to automate scalability,
+and be secure to ensure GDPR compliance. We must choose a database software that facilitates fast implementation,
+scalability, security, and provides good performance while maintaining data integrity.
 
 ## Decision Drivers
 
@@ -66,7 +66,6 @@ No confirmation yet
 - Good, because it provides excellent security measures by default
 - Bad, because no-one in the team is very familiar with MongoDB, so implementation will be slower
 - Bad, support for transactions is present, though worse than relational databases, so it is harder to maintain data integrity
-- 
 
 ### MySQL
 
@@ -80,6 +79,5 @@ No confirmation yet
 - Bad, because all information that must be stored on media must be known in advance. If some media doesn't conform to the existing design, then it could not be stored and the database and system must be redesigned.
 
 ## More Information
-
 
 ### Links
