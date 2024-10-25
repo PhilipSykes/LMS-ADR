@@ -21,7 +21,7 @@ How can we design an architecture that meets these requirements while allowing f
 
 ## Considered Options
 
-- Monolithic Architecture
+- Three-Tier Architecture
 - Microservices Architecture
 - Service-Oriented Architecture (SOA)
 
@@ -43,11 +43,11 @@ Chosen option: "Service-Oriented Architecture (SOA)", because it provides a bala
 
 No current review performed of this ADR.
 
-### Monolithic Architecture
+### Three-Tier Architecture
 
 - Good, because it's simpler to develop and deploy initially.
-- Good, because it's easier to test as a single unit.
-- Bad, because it's harder to scale individual components.
+- Good, because it provides clear separation of concerns between presentation, business logic, and data layers
+- Bad, because horizontal scaling is more complex than in service-based architectures.
 - Bad, because updates to one part of the system might require redeploying the entire application.
 - Bad, because it might not meet our scalability and maintainability requirements in the long term.
 
@@ -76,6 +76,10 @@ We performed a degree of research from our chosen options to formulate our final
 
 - [Microservices vs. monolithic architecture](https://www.atlassian.com/microservices/microservices-architecture/microservices-vs-monolith) - This article from Atlassian provides a detailed comparison between monolithic and microservices architectures, supporting the pros and cons listed in our ADR.
 
+-[Three-tier architecture](https://www.ibm.com/topics/three-tier-architecture) - comprehensive guide by IBM to three-tier systems.
+
 - [soa-vs-microservices](https://www.ibm.com/think/topics/soa-vs-microservices) - IBM's blog post explains the differences between SOA and microservices, offering insights into why SOA might be a better fit for certain scenarios.
 
 - [Microservices vs. Service-Oriented Architecture](https://www.f5.com/content/dam/f5/corp/global/pdf/ebooks/Microservices_vs_SOA_NGINX.pdf) - NGINX's comparison between microservices and SOA provides additional context for our decision to choose SOA over microservices.
+
+-[Web app architectures](https://learn.microsoft.com/en-us/dotnet/architecture/modern-web-apps-azure/common-web-application-architectures) - Microsoft guide talking through various facets of web application development including architecture options.
