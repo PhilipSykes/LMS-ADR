@@ -37,11 +37,11 @@ Chosen option: "Service-Oriented Architecture (SOA)", because it provides a bala
 - Good, because it allows for easier integration of new technologies and services in the future.
 - Bad, because it has resulted in an increased workload developing the various independant services.
 
-## Pros and Cons of the Options
-
 ### Confirmation
 
 No current review performed of this ADR.
+
+## Pros and Cons of the Options
 
 ### Three-Tier Architecture
 
@@ -74,9 +74,9 @@ We performed a degree of research from our chosen options to formulate our final
 
 ### Links
 
-- [Microservices vs. monolithic architecture](https://www.atlassian.com/microservices/microservices-architecture/microservices-vs-monolith) - This article from Atlassian provides a detailed comparison between monolithic and microservices architectures, supporting the pros and cons listed in our ADR.
+- [Microservices vs. Three-tier architecture](https://www.techtarget.com/searchapparchitecture/tip/Three-tier-vs-microservices-architecture-How-to-choose) - Article by techtarget which briefly discusses considerations to be made when deciding on three-tier / Microservice architectures.
 
--[Three-tier architecture](https://www.ibm.com/topics/three-tier-architecture) - comprehensive guide by IBM to three-tier systems.
+-[Three-tier architecture](https://www.ibm.com/topics/three-tier-architecture) - Comprehensive guide by IBM to three-tier systems.
 
 - [soa-vs-microservices](https://www.ibm.com/think/topics/soa-vs-microservices) - IBM's blog post explains the differences between SOA and microservices, offering insights into why SOA might be a better fit for certain scenarios.
 

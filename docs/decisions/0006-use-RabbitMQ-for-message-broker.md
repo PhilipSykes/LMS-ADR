@@ -38,7 +38,7 @@ Chosen option: "RabbitMQ", because after investigation it provides the most suit
 
 ### Confirmation
 
-No current review of this ADR yet.
+No current review of this ADR yet. This decision will be reviewed after initial implementation to ensure it meets our performance and reliability requirements.
 
 ## Pros and Cons of the Options
 
@@ -86,5 +86,3 @@ With publish/subscribe, one message can trigger all these actions without the Me
 [Azure service bus vs RabbitMQ](https://stackshare.io/stackups/azure-service-bus-vs-rabbitmq) - detailed comparison between the two message brokers.
 
 [Service communication patterns in microservices](https://learn.microsoft.com/en-us/dotnet/architecture/microservices/architect-microservice-container-applications/communication-in-microservice-architecture) - microsoft guide to communication patterns within microservice style architectures, particularly HTTP & REST communication.
-
-This decision will be reviewed after initial implementation to ensure it meets our performance and reliability requirements.
