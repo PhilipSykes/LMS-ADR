@@ -3,15 +3,15 @@ parent: Decisions
 nav_order: 3
 ---
 
-# Use MongoDB as primary database
+# Database software choice
 
 ## Context and Problem Statement
 
 The Advanced Media Library (AML) requires the use of a hightly scalable, secure and performant database software
-to store the large amounts of information on media, members, branches and payments.
-The database should easy to host using cloud services in order to automate scalability,
-and be secure to ensure GDPR compliance. We must choose a database software that facilitates fast implementation,
-scalability, security, and provides good performance while maintaining data integrity.
+ to store the large amounts of information on media, members, branches and payments. 
+ The database should easy to host using cloud services in order to automate scalability, 
+ and be secure to ensure GDPR compliance. We must choose a database software that facilitates fast implementation, 
+ scalability, security, and provides good performance while maintaining data integrity.
 
 ## Decision Drivers
 
@@ -66,6 +66,7 @@ No confirmation yet
 - Good, because it provides excellent security measures by default
 - Bad, because no-one in the team is very familiar with MongoDB, so implementation will be slower
 - Bad, support for transactions is present, though worse than relational databases, so it is harder to maintain data integrity
+- 
 
 ### MySQL
 
@@ -80,16 +81,17 @@ No confirmation yet
 
 ## More Information
 
-[Neo4j Documentation - https://neo4j.com/docs/]
-
-[MongoDB Documentation - https://www.mongodb.com/docs/manual/]
-
-[Guide to MongoDB Transactions - https://www.mongodb.com/products/capabilities/transactions]
-
-[Tutorial on non-relational database design - https://www.youtube.com/watch?v=QAqK-R9HUhc]
-
-[Comparison of relational and non-relational databases - https://www.mongodb.com/resources/compare/relational-vs-non-relational-databases]
-
-[Discussion on the best uses for different database types - https://www.reddit.com/r/Database/comments/13polb6/how_do_you_choose_between_relational_database_and/]
 
 ### Links
+
+Neo4j Documentation - https://neo4j.com/docs/
+
+MongoDB Documentation - https://www.mongodb.com/docs/manual/
+
+Guide to MongoDB Transactions - https://www.mongodb.com/products/capabilities/transactions
+
+Tutorial on non-relational database design - https://www.youtube.com/watch?v=QAqK-R9HUhc
+
+Comparison of relational and non-relational databases - https://www.mongodb.com/resources/compare/relational-vs-non-relational-databases
+
+Discussion on the best uses for different database types - https://www.reddit.com/r/Database/comments/13polb6/how_do_you_choose_between_relational_database_and/
