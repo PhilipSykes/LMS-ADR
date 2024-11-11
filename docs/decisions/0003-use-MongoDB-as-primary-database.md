@@ -80,4 +80,16 @@ No confirmation yet
 
 ## More Information
 
+[Neo4j Documentation - https://neo4j.com/docs/]
+
+[MongoDB Documentation - https://www.mongodb.com/docs/manual/]
+
+[Guide to MongoDB Transactions - https://www.mongodb.com/products/capabilities/transactions]
+
+[Tutorial on non-relational database design - https://www.youtube.com/watch?v=QAqK-R9HUhc]
+
+[Comparison of relational and non-relational databases - https://www.mongodb.com/resources/compare/relational-vs-non-relational-databases]
+
+[Discussion on the best uses for different database types - https://www.reddit.com/r/Database/comments/13polb6/how_do_you_choose_between_relational_database_and/]
+
 ### Links
