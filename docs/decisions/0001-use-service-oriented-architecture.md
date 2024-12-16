@@ -7,7 +7,7 @@ nav_order: 1
 
 ## Context and Problem Statement
 
-The Advanced Media Library (AML) requires a comprehensive, modern library management system to streamline operations across various access points (in-branch, online, web-mobile app, and telephone services) while serving a large user base across England. The system needs to handle diverse media types, scale for future growth, maintain performance, ensure data integrity, and provide accessibility for all users.
+The Advanced Media Library (AML) requires a modern library management system to streamline operations across various access points (in-branch, online, web-mobile app, and telephone services) while serving a large user base across the country. The system needs to handle different media types, scale for future growth, maintain performance, ensure data integrity, and provide accessibility for all users.
 
 How can we design an architecture that meets these requirements while allowing for maintainability and horizontal scalability?
 
@@ -16,7 +16,7 @@ How can we design an architecture that meets these requirements while allowing f
 - Need for a system that can handle 13.4 million users with 10% annual growth i.e. how intuitively scalable is the architecture style
 - Performance requirements for rapid search results and quick webpage loading times
 - Requirement for centralized management with distributed operations
-- Necessity to manage a large volume of diverse media types efficiently
+- Need to manage a large volume of diverse media types efficiently
 - Need for easy updates and modifications without disrupting the entire system
 
 ## Considered Options
@@ -27,7 +27,7 @@ How can we design an architecture that meets these requirements while allowing f
 
 ## Decision Outcome
 
-Chosen option: "Service-Oriented Architecture (SOA)", because it provides a balance between the flexibility of microservices and the simplicity of monolithic systems, while meeting our scalability, maintainability, and performance requirements.
+Chosen option: "Service-Oriented Architecture (SOA)", because it gives us a balance between the flexibility of microservices and the simplicity of monolithic systems, while meeting our scalability, maintainability, and performance requirements.
 
 ### Consequences
 
@@ -39,47 +39,48 @@ Chosen option: "Service-Oriented Architecture (SOA)", because it provides a bala
 
 ### Confirmation
 
-Architecture fully implemented as of sprint 2 with services deployed independently of each other locally or via docker.
+Architecture fully implemented as of sprint 2 with services deployed independently of each other locally or via docker thereby meeting our maintainability & scalability needs.
 
 ## Pros and Cons of the Options
 
 ### Three-Tier Architecture
 
-- Good, because it's simpler to develop and deploy initially.
-- Good, because it provides clear separation of concerns between presentation, business logic, and data layers
-- Bad, because horizontal scaling is more complex than in service-based architectures.
+- Good, because it's simpler to develop and deploy initially[1].
+- Good, because it provides clear separation of concerns between presentation, business logic, and data layers[1]
+- Bad, because horizontal scaling is more complex than in service-based architectures[4].
 - Bad, because updates to one part of the system might require redeploying the entire application.
 - Bad, because it might not meet our scalability and maintainability requirements in the long term.
 
 ### Microservices Architecture
 
-- Good, because it offers the highest level of scalability and flexibility.
-- Good, because it allows for independent deployment of services.
-- Bad, because it introduces significant complexity in service management and communication.
+- Good, because it offers the highest level of scalability and flexibility[2].
+- Good, because it allows for independent deployment of services[2].
+- Bad, because it introduces massive complexity in service management and communication.
 - Bad, because it might be overkill for our current needs and could lead to over-engineering.
 - Bad, because it requires more resources and expertise to implement and maintain effectively.
 
 ### Service-oriented Architecture
 
 - Good, because it provides a balance between scalability and manageability.
-- Good, because it allows for modular development and deployment of services.
+- Good, because it allows for modular development and deployment of services.[5]
+- Good, because unlike microservices, its inherently aimed at component sharing[3]
 - Good, because it supports our maintainability requirements by allowing updates to individual services.
-- Good, because it can meet our performance requirements through optimized service design.
+- Good, because it can help us meet our performance requirements with optimized service design.
 - Neutral, because it introduces some complexity in service communication, but not as much as microservices.
-- Bad, because it may require more initial setup compared to a monolithic system.
+- Bad, because it may require more initial setup compared to a monolithic or three-tier system.
 
 ## More Information
 
 We performed a degree of research from our chosen options to formulate our final decision. links provided below.
 
-### Links
+### References
 
-- [Microservices vs. Three-tier architecture](https://www.techtarget.com/searchapparchitecture/tip/Three-tier-vs-microservices-architecture-How-to-choose) - Article by techtarget which briefly discusses considerations to be made when deciding on three-tier / Microservice architectures.
+[1]:[IBM. "Three-tier architecture." IBM Topics,](https://www.ibm.com/topics/three-tier-architecture)- Comprehensive guide by IBM to three-tier systems.
 
--[Three-tier architecture](https://www.ibm.com/topics/three-tier-architecture) - Comprehensive guide by IBM to three-tier systems.
+[2]:[IBM. "SOA vs. Microservices: What's the Difference?" IBM Think Blog,](https://www.ibm.com/think/topics/soa-vs-microservices)- IBM's blog post explains the differences between SOA and microservices, giving insight into why SOA might be a better fit for certain scenarios.
 
-- [soa-vs-microservices](https://www.ibm.com/think/topics/soa-vs-microservices) - IBM's blog post explains the differences between SOA and microservices, offering insights into why SOA might be a better fit for certain scenarios.
+[3]:[NGINX. "Microservices vs. Service-Oriented Architecture." F5 Networks,](https://www.f5.com/content/dam/f5/corp/global/pdf/ebooks/Microservices_vs_SOA_NGINX.pdf) - NGINX's comparison between microservices and SOA provides additional context for our decision to choose SOA over microservices.
 
-- [Microservices vs. Service-Oriented Architecture](https://www.f5.com/content/dam/f5/corp/global/pdf/ebooks/Microservices_vs_SOA_NGINX.pdf) - NGINX's comparison between microservices and SOA provides additional context for our decision to choose SOA over microservices.
+[4]:[TechTarget. "Three-tier vs. microservices architecture: How to choose." SearchAppArchitecture,](https://www.techtarget.com/searchapparchitecture/tip/Three-tier-vs-microservices-architecture-How-to-choose) - Article by techtarget which briefly discusses considerations to be made when deciding on three-tier / Microservice architectures.
 
--[Web app architectures](https://learn.microsoft.com/en-us/dotnet/architecture/modern-web-apps-azure/common-web-application-architectures) - Microsoft guide talking through various facets of web application development including architecture options.
+[5]:[Amazon "What’s the Difference Between SOA and Microservices?" AWS Amazon,](https://aws.amazon.com/compare/the-difference-between-soa-microservices/) - Amazon guide talking through the different facets of SOA vs Microservices.
