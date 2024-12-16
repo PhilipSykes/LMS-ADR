@@ -39,7 +39,7 @@ Chosen option: "Service-Oriented Architecture (SOA)", because it provides a bala
 
 ### Confirmation
 
-No current review performed of this ADR.
+Architecture fully implemented as of sprint 2 with services deployed independently of each other locally or via docker.
 
 ## Pros and Cons of the Options
 

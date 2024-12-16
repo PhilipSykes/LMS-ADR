@@ -29,11 +29,11 @@ Chosen option: Docker
 
 Good, as it allows us to encapsulate services and resources in images
 Good, as it allows us to manage and maintain services without shutting down unrelated services
-Bad, as it infrastucture is not externally managed
+Bad, as its infrastucture is not externally managed
 
 ### Confirmation
 
-No confirmation yet
+Docker deployment live as of sprint 2. Implementation has aligned well with decision factors.
 
 ## Pros and Cons of the Options
 

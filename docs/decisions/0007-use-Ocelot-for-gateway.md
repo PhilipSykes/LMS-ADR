@@ -28,7 +28,7 @@ How should we implement communication between services in our SOA to ensure reli
 
 ## Decision Outcome
 
-Chosen option: "RabbitMQ". According to Enterprise Integration Patterns [2], message brokers provide the most suitable messaging patterns for SOA, particularly with publish/subscribe that allows for loose coupling between our services.
+Chosen option: "RabbitMQ". According to Enterprise Integration Patterns [2], message brokers provide the most suitable messaging patterns for SOA, particularly with publish/subscribe capabilities that allow for loose coupling between services.
 
 ### Consequences
 
@@ -79,10 +79,12 @@ With publish/subscribe, one message can trigger all these actions without the Me
 
 ### References
 
+[RabbitMQ with .NET](https://www.rabbitmq.com/client-libraries/dotnet) - Official RabbitMQ .NET client documentation.
+
+## Cites
+
 [1]:[Microsoft. "Communication in microservice architecture." Microsoft Learn,](https://learn.microsoft.com/en-us/dotnet/architecture/microservices/architect-microservice-container-applications/communication-in-microservice-architecture) - microsoft guide to communication patterns within microservice style architectures, particularly HTTP & REST communication.
 
 [2]:["Use of messaging brokers", Enterprise Integration Patterns,](https://www.enterpriseintegrationpatterns.com/patterns/messaging/MessageBroker.html) - Explains why and when to use message brokers.
 
 [3]:[Microsoft. "Asynchronous messaging options." Microsoft Learn,](https://learn.microsoft.com/en-us/azure/architecture/guide/technology-choices/messaging) - Microsoft guide to message brokers & overview of Azure service bus.
-
-[4]:[RabbitMQ with .NET](https://www.rabbitmq.com/client-libraries/dotnet) - RabbitMQ .NET client documentation.
