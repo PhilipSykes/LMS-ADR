@@ -1,90 +1,76 @@
 ---
 parent: Decisions
-nav_order: 6
+nav_order: 8
 ---
 
-# Use RabbitMQ for message broker
+# Use JWT Tokens and .NET Claims for Authorization
 
 ## Context and Problem Statement
 
-After choosing a Service-Oriented Architecture (SOA) for the Advanced Media Library (AML) system, we need to determine how these services will communicate with each other. The system requires communication between various services like Media Management, User Authentication, and Search services.
-
-According to Microsoft's guidance on microservice communication patterns [1], the choice of communication strategy significantly impacts system reliability and scalability.
-
-How should we implement communication between services in our SOA to ensure reliability, scalability, and maintainability?
+Our application needs a robust authentication and authorization mechanism that can securely manage user identity and permissions across our services. We need a solution that is secure, scalable, and integrates well with our .NET ecosystem.
 
 ## Decision Drivers
 
-- Message delivery must be reliable and traceable
-- System needs to handle high volumes of inter-service communication
-- Communication method should work well with our chosen .NET stack
-- Need for asynchronous operations (e.g., updating search index after media changes)
+- Need for stateless authentication to support horizontal scaling
+- Must support fine-grained authorization controls
+- Solution should work seamlessly across multiple services
+- Must be secure and follow industry best practices
+- Need for efficient token validation and minimal database lookups
+- Good integration with .NET ecosystem
 
 ## Considered Options
 
--Direct HTTP communication between services
--Message broker (RabbitMQ)
--Message broker (Azure Service Bus)
+- JWT tokens with .NET claims
+- Session-based authentication
+- OAuth2 with external identity provider
 
 ## Decision Outcome
 
-Chosen option: "RabbitMQ". According to Enterprise Integration Patterns [2], message brokers provide the most suitable messaging patterns for SOA, particularly with publish/subscribe capabilities that allow for loose coupling between services.
+Chosen option: "JWT tokens with .NET claims" because it provides a stateless, secure authentication mechanism that integrates naturally with .NET's authorization system.
 
 ### Consequences
 
--Good, because it allows services to communicate without knowing about each other through publish/subscribe increasing security for our app
--Good, because messages will persist even if receiving service is temporarily down adding good data consistency (ACID principles)
-Good, because it enables better load handling through message queuing which prevents bottlenecks during high traffic periods[3]
--Bad, because it adds complexity to our infrastructure setup
--Bad, because team needs training in message broker concepts and RabbitMQ specifically
+- Good, because tokens can be validated without database lookups
+- Good, because .NET claims provide a standard way to handle authorization
+- Good, because it's scalable and works well in distributed systems
+- Bad, because tokens cannot be invalidated before expiry
+- Bad, because token size increases with number of claims
+- Bad, because requires careful handling of token storage on client side
 
 ### Confirmation
 
-Initial implementation in sprint 1 took on the form of allocating the message broker as the communication layer between gateway & services. After deliberation & review of our performance targets which were being stifled by this design choice due to latency, this implementation was scaled back to the original plans of purely service to service communication.
+Implementation created & tested in sprint 2 with user roles and permissions. We also incorporated sessions but purely for token storage on client-side & not authentication.
 
 ## Pros and Cons of the Options
 
-### Direct HTTP communication
+### JWT tokens with .NET claims
 
--Good, because it's simple to implement initially
--Good, because developers are already familiar with HTTP/REST
--Bad, because it makes asynchronous operations more complex
--Bad, because scaling becomes more difficult as services multiply
+- Good, because it's built into ASP.NET Core ecosystem[1]
+- Good, because claims-based authorization is flexible and easily extended with policies[3]
+- Good, because JWTs can transfer user details eliminating the need to query the database or authentication server[4]
+- Bad, because tokens must be kept small to minimize overhead
 
-### RabbitMQ
+### Session-based authentication
 
--Good, because services can communicate without direct knowledge of each other
--Good, because it handles asynchronous operations naturally
--Good, because failed messages can be retried automatically
--Good, because multiple services can receive the same message via publish/subscribe
--Bad, because it requires setting up and maintaining additional infrastructure
--Bad, because monitoring and debugging is more complex than direct HTTP
+- Good, because sessions can be invalidated immediately
+- Good, because it's simpler to implement
+- Bad, because requires session state storage
+- Bad, because doesn't scale horizontally without additional infrastructure
+- Bad, because requires more database lookups
 
-### Azure service bus
+### OAuth2 with external identity provider
 
--Good, because it intergrates better with .NET & blazor due to being part of the same ecosystem.
--Bad, because this it is not free to use compared to other options.
--Bad, because it limits our deployment options to Azure cloud only.
+- Good, because OAuth has well-tested client libraries in almost every language and web framework[4]
+- Good, because provides additional security features
+- Bad, because adds external dependency
+- Bad, because requires more complex implementation
+- Bad, because may have associated costs
 
 ## More Information
 
-During our research, we discovered that a message broker would be more suitable than direct communication for a SOA architecture. RabbitMQ's publish/subscribe model particularly stood out because:
-
-When a media item is updated:
-
-1.Search service needs to update its index
-2.Notification service needs to notify relevant users
-3.Report service needs to log the change
-With publish/subscribe, one message can trigger all these actions without the Media service needing to know about all these dependent services.
-
 ### References
 
-[RabbitMQ with .NET](https://www.rabbitmq.com/client-libraries/dotnet) - Official RabbitMQ .NET client documentation.
-
-## Cites
-
-[1]:[Microsoft. "Communication in microservice architecture." Microsoft Learn,](https://learn.microsoft.com/en-us/dotnet/architecture/microservices/architect-microservice-container-applications/communication-in-microservice-architecture) - microsoft guide to communication patterns within microservice style architectures, particularly HTTP & REST communication.
-
-[2]:["Use of messaging brokers", Enterprise Integration Patterns,](https://www.enterpriseintegrationpatterns.com/patterns/messaging/MessageBroker.html) - Explains why and when to use message brokers.
-
-[3]:[Microsoft. "Asynchronous messaging options." Microsoft Learn,](https://learn.microsoft.com/en-us/azure/architecture/guide/technology-choices/messaging) - Microsoft guide to message brokers & overview of Azure service bus.
+[1]: [ASP.NET Core JWT Authentication](https://docs.microsoft.com/en-us/aspnet/core/security/authentication/jwt-authn)
+[2]: [Claims-based authorization in ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/security/authorization/claims)
+[3]:[Claims based Authentication](https://chrissainty.com/securing-your-blazor-apps-authentication-with-clientside-blazor-using-webapi-aspnet-core-identity/) - useful guide to claims & policy configuration in blazor apps.
+[4]:[OAuth vs JWT](https://frontegg.com/blog/oauth-vs-jwt#:~:text=OAuth%20and%20JWT%20are%20both,server%2Dto%2Dserver%20authorization.) - article detailing pros & cons of OAuth & JWT.
