@@ -7,9 +7,9 @@ nav_order: 1
 
 ## Context and Problem Statement
 
-The Advanced Media Library (AML) requires a modern library management system to streamline operations across various access points (in-branch, online, web-mobile app, and telephone services) while serving a large user base across the country. The system needs to handle different media types, scale for future growth, maintain performance, ensure data integrity, and provide accessibility for all users.
+The Advanced Media Library (AML) requires a modern library management system to streamline operations across various access points while serving a large user base across the country. The system needs to handle different media types, scale for future growth, maintain performance, and ensure data integrity.
 
-How can we design an architecture that meets these requirements while allowing for maintainability and horizontal scalability?
+How can we design an architecture that meets these requirements while allowing for performance and horizontal scalability?
 
 ## Decision Drivers
 
@@ -27,7 +27,7 @@ How can we design an architecture that meets these requirements while allowing f
 
 ## Decision Outcome
 
-Chosen option: "Service-Oriented Architecture (SOA)", because it gives us a balance between the flexibility of microservices and the simplicity of monolithic systems, while meeting our scalability, maintainability, and performance requirements.
+Chosen option: "Service-Oriented Architecture (SOA)", because it gives us a balance between the flexibility of microservices and the simplicity of monolithic systems, while meeting our scalability and performance requirements.
 
 ### Consequences
 
