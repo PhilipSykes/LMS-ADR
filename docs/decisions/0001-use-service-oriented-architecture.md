@@ -7,16 +7,16 @@ nav_order: 1
 
 ## Context and Problem Statement
 
-The Advanced Media Library (AML) requires a modern library management system to streamline operations across various access points while serving a large user base across the country. The system needs to handle different media types, scale for future growth, maintain performance, and ensure data integrity.
+The Advanced Media Library (AML) requires a modern library management system to streamline operations across various access points while serving a large user base across the country. The system needs to handle multiple media types while maintaining fast access times and data integrity across various access points.
 
-How can we design an architecture that meets these requirements while allowing for performance and horizontal scalability?
+We need to determine: What architecture style will best support our scalability and performance requirements?
 
 ## Decision Drivers
 
 - Need for a system that can handle 13.4 million users with 10% annual growth i.e. how intuitively scalable is the architecture style
 - Performance requirements for rapid search results and quick webpage loading times
 - Requirement for centralized management with distributed operations
-- Need to manage a large volume of diverse media types efficiently
+- Must efficiently handle a large number of diverse media types
 - Need for easy updates and modifications without disrupting the entire system
 
 ## Considered Options
@@ -27,7 +27,7 @@ How can we design an architecture that meets these requirements while allowing f
 
 ## Decision Outcome
 
-Chosen option: "Service-Oriented Architecture (SOA)", because it gives us a balance between the flexibility of microservices and the simplicity of monolithic systems, while meeting our scalability and performance requirements.
+Chosen option: "Service-Oriented Architecture (SOA)", because it gives us a good balance between the flexibility of microservices and the simplicity of monolithic systems, while meeting our scalability and performance requirements.
 
 ### Consequences
 
@@ -49,15 +49,15 @@ Architecture fully implemented as of sprint 2 with services deployed independent
 - Good, because it provides clear separation of concerns between presentation, business logic, and data layers[1]
 - Bad, because horizontal scaling is more complex than in service-based architectures[4].
 - Bad, because updates to one part of the system might require redeploying the entire application.
-- Bad, because it might not meet our scalability and maintainability requirements in the long term.
+- Bad, because it might not meet our scalability and maintainability needs in the long term.
 
 ### Microservices Architecture
 
 - Good, because it offers the highest level of scalability and flexibility[2].
 - Good, because it allows for independent deployment of services[2].
 - Bad, because it introduces massive complexity in service management and communication.
-- Bad, because it might be overkill for our current needs and could lead to over-engineering.
-- Bad, because it requires more resources and expertise to implement and maintain effectively.
+- Bad, because it might be overkill for our current needs.
+- Bad, because it may require a lot more set up,resources & time to implement effectively.
 
 ### Service-oriented Architecture
 
